@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Android Developer Portfolio</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+          rel="stylesheet">
 
     <style>
         * {
@@ -141,6 +142,24 @@
           margin-top: 4px;
         }
 
+        .resume-company {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #60a5fa; /* highlight color */
+  margin-top: 4px;
+}
+
+.resume-desc {
+  margin-top: 10px;
+}
+
+.resume-desc p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
         /* PROJECT CARD */
         .project-card {
           display: flex;
@@ -216,7 +235,7 @@
 <div class="hero">
 
     <div class="profile-img">
-        <img src="https://github.com/hsumyatyehtet.png" />
+        <img src="https://github.com/hsumyatyehtet.png"/>
     </div>
 
     <h1>Hsu Myat Ye Htet</h1>
@@ -241,15 +260,29 @@
 
     <div class="resume-card reveal">
         <div class="resume-title">Bachelor of Computer Science</div>
-        <div class="resume-sub">Computer University (Taungoo) (2013 - 2018)</div>
-        <div class="resume-sub">Software Engineering</div>
+        <div class="resume-company">Computer University (Taungoo) (2013 - 2018)</div>
+        <div class="resume-desc">
+            <p><strong>Focus Area:</strong> Software Engineering</p>
+            <p><strong>Core Learning:</strong> Data Structures, Algorithms, OOP, Database Systems, Mobile Development Basics</p>
+        </div>
     </div>
 
     <div class="resume-card reveal">
         <div class="resume-title">Professional Android Development Training</div>
-        <div class="resume-sub">PADC Myanmar (2019)</div>
-        <div class="resume-sub">Kotlin • MVP • MVVM</div>
+
+        <div class="resume-company">
+            PADC Myanmar • 2019
+        </div>
+
+        <div class="resume-desc">
+            <p><strong>Focus:</strong> Professional Android development fundamentals and architecture patterns</p>
+
+            <p><strong>Key Skills:</strong> Kotlin, MVP, MVVM, REST API integration, UI development</p>
+
+            <p><strong>Outcome:</strong> Built foundational knowledge in clean architecture and modern Android development practices</p>
+        </div>
     </div>
+
 </section>
 
 <!-- CAREER -->
@@ -258,19 +291,60 @@
 
     <div class="resume-card reveal">
         <div class="resume-title">Android Developer</div>
-        <div class="resume-sub">Company Name (2023 - Present)</div>
-        <div class="resume-sub">
-            Built scalable apps using Kotlin, Compose, MVVM, Clean Architecture.
+        <div class="resume-company">onenex (Jan 2024 - Present)</div>
+        <div class="resume-desc">
+            <p><strong>Architecture Implementation:</strong> Applied multi-module Android architecture, Clean Architecture, and MVVM to build scalable and maintainable applications, improving code structure and build efficiency.</p>
+
+            <p><strong>Code Quality & Refactoring:</strong> Led refactoring initiatives to enhance code readability, performance, and long-term maintainability.</p>
+
+            <p><strong>Agile & Scrum:</strong> Actively participated in agile processes, including Scrum ceremonies, contributing to efficient and timely delivery.</p>
+        </div>
+    </div>
+
+    <div class="resume-card reveal">
+        <div class="resume-title">Senior Android Developer</div>
+
+        <div class="resume-company">
+            Aceplus Solution Company Limited • Sep 2022 – Jan 2024
+        </div>
+
+        <div class="resume-desc">
+            <p>Developed Android applications using Kotlin with focus on scalable architecture, UI implementation, and API integration.</p>
+            <p>Improved application stability through bug fixing, performance optimization, and code maintenance.</p>
         </div>
     </div>
 
     <div class="resume-card reveal">
         <div class="resume-title">Junior Android Developer</div>
-        <div class="resume-sub">Company Name (2022 - 2023)</div>
-        <div class="resume-sub">
-            UI development, API integration, bug fixing.
+
+        <div class="resume-company">
+            MM-Digital Solutions • Jan 2020 – Feb 2021
+        </div>
+
+        <div class="resume-desc">
+            <p><strong>App Development:</strong> Contributed to Android application development using Kotlin and MVP architectural pattern, working on core features and UI components across multiple projects.</p>
+
+            <p><strong>Maintenance & Enhancement:</strong> Supported and improved existing applications under senior developer guidance, ensuring stability and performance optimization.</p>
+
+            <p><strong>API & UI Implementation:</strong> Implemented UI features, integrated REST APIs, and handled bug fixing and feature enhancements in production applications.</p>
         </div>
     </div>
+
+    <div class="resume-card reveal">
+        <div class="resume-title">Junior Android Developer</div>
+
+        <div class="resume-company">
+            Universal Technology • Oct 2018 – Dec 2019
+        </div>
+
+        <div class="resume-desc">
+            <p>
+                This was my first professional experience as a Junior Android Developer.
+                Contributed to the UTBA business application by developing UI components and working with database features under the guidance of senior developers.
+            </p>
+        </div>
+    </div>
+
 </section>
 
 <!-- PROJECTS -->
@@ -281,7 +355,7 @@
        href="https://play.google.com/store/apps/details?id=com.example.movie"
        target="_blank">
 
-        <img src="https://via.placeholder.com/150" />
+        <img src="https://via.placeholder.com/150"/>
 
         <div class="project-content">
             <h3>🎬 Movie App</h3>
@@ -294,7 +368,7 @@
        href="https://play.google.com/store/apps/details?id=com.example.chat"
        target="_blank">
 
-        <img src="https://via.placeholder.com/150" />
+        <img src="https://via.placeholder.com/150"/>
 
         <div class="project-content">
             <h3>💬 Chat App</h3>
