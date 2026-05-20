@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Android Developer Portfolio</title>
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================
-           BASE
-        ========================= */
         * {
           margin: 0;
           padding: 0;
@@ -38,9 +34,7 @@
           z-index: -1;
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
         .hero {
           height: 100vh;
           display: flex;
@@ -48,6 +42,29 @@
           justify-content: center;
           align-items: center;
           text-align: center;
+        }
+
+        /* PROFILE IMAGE */
+        .profile-img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-bottom: 20px;
+          border: 3px solid rgba(96, 165, 250, 0.7);
+          box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+          animation: fadeDown 1s ease;
+        }
+
+        .profile-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: 0.4s ease;
+        }
+
+        .profile-img:hover img {
+          transform: scale(1.1);
         }
 
         .hero h1 {
@@ -70,9 +87,7 @@
           animation: fadeUp 1.4s ease;
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
+        /* SECTIONS */
         section {
           padding: 80px 20px;
           max-width: 1000px;
@@ -86,9 +101,7 @@
           padding-left: 10px;
         }
 
-        /* =========================
-           CARDS
-        ========================= */
+        /* CARDS */
         .grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -116,9 +129,7 @@
           border-color: #3b82f6;
         }
 
-        /* =========================
-           BADGES
-        ========================= */
+        /* BADGES */
         .badge {
           display: inline-block;
           padding: 6px 10px;
@@ -128,17 +139,13 @@
           background: #1e293b;
         }
 
-        /* =========================
-           LINKS
-        ========================= */
+        /* LINKS */
         a {
           color: #60a5fa;
           text-decoration: none;
         }
 
-        /* =========================
-           ANIMATIONS
-        ========================= */
+        /* ANIMATIONS */
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
@@ -149,12 +156,19 @@
           to { opacity: 1; transform: translateY(0); }
         }
     </style>
+
 </head>
 
 <body>
 
 <!-- HERO -->
 <div class="hero">
+
+    <!-- PROFILE IMAGE (GITHUB LINK HERE) -->
+    <div class="profile-img">
+        <img src="https://avatars.githubusercontent.com/u/53394999?v=4" alt="Profile Photo" />
+    </div>
+
     <h1>Hsu Myat Ye Htet</h1>
     <h2>Android Developer</h2>
     <p>
@@ -177,7 +191,6 @@
     <div class="title">Projects</div>
 
     <div class="grid">
-
         <div class="card reveal">
             <h3>🎬 Movie App</h3>
             <p>Jetpack Compose + API + Clean Architecture</p>
@@ -192,7 +205,6 @@
             <h3>🛒 E-Commerce App</h3>
             <p>Cart, product listing, checkout flow</p>
         </div>
-
     </div>
 </section>
 
@@ -220,7 +232,6 @@
     </div>
 </section>
 
-<!-- SCRIPT -->
 <script>
     const cards = document.querySelectorAll(".reveal");
 
@@ -230,9 +241,7 @@
           entry.target.classList.add("show");
         }
       });
-    }, {
-      threshold: 0.15
-    });
+    }, { threshold: 0.15 });
 
     cards.forEach(card => observer.observe(card));
 </script>
