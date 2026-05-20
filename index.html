@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Android Developer Portfolio</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================
+           BASE
+        ========================= */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Inter", sans-serif;
+        }
+
+        body {
+          background: #0b0f19;
+          color: #e5e7eb;
+          overflow-x: hidden;
+        }
+
+        /* Glow background */
+        body::before {
+          content: "";
+          position: fixed;
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(circle, #3b82f6, transparent 60%);
+          filter: blur(120px);
+          top: -200px;
+          left: -200px;
+          z-index: -1;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-size: 3.5rem;
+          font-weight: 800;
+          animation: fadeDown 1s ease;
+        }
+
+        .hero h2 {
+          color: #60a5fa;
+          margin-top: 10px;
+          font-size: 1.5rem;
+          animation: fadeUp 1.2s ease;
+        }
+
+        .hero p {
+          margin-top: 15px;
+          max-width: 600px;
+          color: #94a3b8;
+          animation: fadeUp 1.4s ease;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+        section {
+          padding: 80px 20px;
+          max-width: 1000px;
+          margin: auto;
+        }
+
+        .title {
+          font-size: 1.8rem;
+          margin-bottom: 25px;
+          border-left: 4px solid #3b82f6;
+          padding-left: 10px;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 20px;
+        }
+
+        .card {
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 16px;
+          padding: 20px;
+          backdrop-filter: blur(12px);
+          transform: translateY(40px);
+          opacity: 0;
+          transition: 0.4s ease;
+        }
+
+        .card.show {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .card:hover {
+          transform: translateY(-6px);
+          border-color: #3b82f6;
+        }
+
+        /* =========================
+           BADGES
+        ========================= */
+        .badge {
+          display: inline-block;
+          padding: 6px 10px;
+          margin: 5px;
+          font-size: 12px;
+          border-radius: 8px;
+          background: #1e293b;
+        }
+
+        /* =========================
+           LINKS
+        ========================= */
+        a {
+          color: #60a5fa;
+          text-decoration: none;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeDown {
+          from { opacity: 0; transform: translateY(-30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Hsu Myat Ye Htet</h1>
+    <h2>Android Developer</h2>
+    <p>
+        Building modern Android apps using Kotlin, Jetpack Compose,
+        Clean Architecture, and scalable mobile systems.
+    </p>
+</div>
+
+<!-- ABOUT -->
+<section>
+    <div class="title">About Me</div>
+    <div class="card reveal">
+        I’m an Android developer focused on building scalable, maintainable, and modern mobile apps.
+        I specialize in Jetpack Compose, MVVM, and clean architecture systems.
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+    <div class="title">Projects</div>
+
+    <div class="grid">
+
+        <div class="card reveal">
+            <h3>🎬 Movie App</h3>
+            <p>Jetpack Compose + API + Clean Architecture</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>💬 Chat App</h3>
+            <p>Realtime messaging using Firebase</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>🛒 E-Commerce App</h3>
+            <p>Cart, product listing, checkout flow</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+    <div class="title">Skills</div>
+    <div class="card reveal">
+        <span class="badge">Kotlin</span>
+        <span class="badge">Jetpack Compose</span>
+        <span class="badge">MVVM</span>
+        <span class="badge">Clean Architecture</span>
+        <span class="badge">Hilt</span>
+        <span class="badge">Retrofit</span>
+        <span class="badge">Coroutines</span>
+        <span class="badge">Flow</span>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+    <div class="title">Contact</div>
+    <div class="card reveal">
+        <p>Email: your@email.com</p>
+        <p>GitHub: <a href="https://github.com/hsumyatyehtet">Profile</a></p>
+    </div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+    const cards = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
