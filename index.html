@@ -1,539 +1,1250 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Android Developer Portfolio</title>
+    <meta name="description" content="Hsu Myat Ye Htet - Android Developer specializing in Kotlin, Java, Jetpack Compose, and Clean Architecture."/>
+    <title>Hsu Myat Ye Htet | Android Developer</title>
 
-    <link rel="icon" href="logo_img.png" type="image/png">
+    <link rel="icon" href="logo_img.png" type="image/png"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"/>
 
     <style>
         * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: "Inter", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
         }
 
         body {
-          background: #0b0f19;
-          color: #e5e7eb;
-          overflow-x: hidden;
+            background: #0b0f19;
+            color: #e5e7eb;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Glow */
         body::before {
-          content: "";
-          position: fixed;
-          width: 600px;
-          height: 600px;
-          background: radial-gradient(circle, #3b82f6, transparent 60%);
-          filter: blur(120px);
-          top: -200px;
-          left: -200px;
-          z-index: -1;
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #3b82f6, transparent 60%);
+            filter: blur(120px);
+            top: -200px;
+            left: -200px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        a {
+            color: inherit;
         }
 
         /* HERO */
+
         .hero {
-          height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
         }
 
         .profile-img {
-          width: 150px;
-          height: 150px;
-          border-radius: 50%;
-          overflow: hidden;
-          margin-bottom: 20px;
-          border: 3px solid rgba(96, 165, 250, 0.7);
-          box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 3px solid rgba(96, 165, 250, 0.7);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
         }
 
         .profile-img img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero h1 {
-          font-size: 3.5rem;
-          font-weight: 800;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .hero h2 {
-          color: #60a5fa;
-          margin-top: 10px;
-          font-size: 1.5rem;
+            color: #60a5fa;
+            margin-top: 10px;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 600;
         }
 
         .hero p {
-          margin-top: 15px;
-          max-width: 600px;
-          color: #94a3b8;
+            margin-top: 18px;
+            max-width: 620px;
+            color: #94a3b8;
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-btn {
+            padding: 11px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .primary-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #3b82f6;
+            transform: translateY(-3px);
+        }
+
+        .secondary-btn {
+            border: 1px solid #334155;
+            color: #cbd5e1;
+        }
+
+        .secondary-btn:hover {
+            border-color: #60a5fa;
+            color: #60a5fa;
         }
 
         /* SECTIONS */
+
         section {
-          padding: 70px 20px;
-          max-width: 1000px;
-          margin: auto;
+            padding: 70px 20px;
+            max-width: 1000px;
+            margin: auto;
         }
 
         .title {
-          font-size: 1.8rem;
-          margin-bottom: 25px;
-          border-left: 4px solid #3b82f6;
-          padding-left: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 12px;
+            font-weight: 700;
         }
 
         /* CARD */
-        .card {
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 16px;
-          padding: 20px;
-          backdrop-filter: blur(12px);
-          transform: translateY(40px);
-          opacity: 0;
-          transition: 0.4s ease;
-          margin-bottom: 15px;
-        }
 
-        .card.show {
-          transform: translateY(0);
-          opacity: 1;
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            margin-bottom: 15px;
+            transition: 0.3s ease;
         }
 
         .card:hover {
-          transform: translateY(-6px);
-          border-color: #3b82f6;
+            border-color: rgba(59, 130, 246, 0.6);
         }
 
-        /* RESUME CARD */
+        /* REVEAL ANIMATION */
+
+        .reveal {
+            transform: translateY(30px);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ABOUT */
+
+        .about-intro {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .about-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            transition: 0.3s ease;
+        }
+
+        .about-item:hover {
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+        }
+
+        .about-item h3 {
+            font-size: 1rem;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .about-item p {
+            color: #94a3b8;
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        /* RESUME */
+
         .resume-card {
-          background: rgba(255,255,255,0.04);
-          border-left: 3px solid #3b82f6;
-          border-radius: 12px;
-          padding: 16px 18px;
-          margin-bottom: 12px;
-          backdrop-filter: blur(10px);
-          transition: 0.3s ease;
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid #3b82f6;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s ease;
         }
 
         .resume-card:hover {
-          transform: translateX(6px);
-          border-left-color: #60a5fa;
+            transform: translateX(6px);
+            border-left-color: #60a5fa;
         }
 
         .resume-title {
-          font-size: 1.1rem;
-          font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e5e7eb;
         }
 
         .resume-sub {
-          color: #94a3b8;
-          font-size: 0.9rem;
-          margin-top: 4px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 4px;
         }
 
         .resume-company {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #60a5fa; /* highlight color */
-  margin-top: 4px;
-}
-
-.resume-desc {
-  margin-top: 10px;
-}
-
-.resume-desc p {
-  font-size: 0.9rem;
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-        /* PROJECT CARD */
-        .project-card {
-          display: flex;
-          gap: 15px;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 16px;
-          padding: 15px;
-          text-decoration: none;
-          color: inherit;
-          backdrop-filter: blur(12px);
-          transform: translateY(40px);
-          opacity: 0;
-          transition: 0.4s ease;
-          margin-bottom: 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #60a5fa;
+            margin-top: 4px;
         }
 
-        .project-card.show {
-          transform: translateY(0);
-          opacity: 1;
+        .resume-desc {
+            margin-top: 12px;
+        }
+
+        .resume-desc p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        /* =========================
+           TECHNICAL HIGHLIGHTS
+        ========================= */
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 22px;
+            transition: 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.06);
+        }
+
+        .highlight-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .highlight-card h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #e5e7eb;
+        }
+
+        .highlight-card p {
+            color: #94a3b8;
+            font-size: 0.87rem;
+            line-height: 1.7;
+        }
+
+        .highlight-tags {
+            margin-top: 14px;
+        }
+
+        .highlight-tags span {
+            display: inline-block;
+            font-size: 11px;
+            padding: 5px 9px;
+            margin: 3px 3px 0 0;
+            border-radius: 6px;
+            background: #1e293b;
+            color: #60a5fa;
+        }
+
+        /* PROJECTS */
+
+        .project-card {
+            display: flex;
+            gap: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 18px;
+            text-decoration: none;
+            color: inherit;
+            backdrop-filter: blur(12px);
+            margin-bottom: 15px;
+            transition: 0.3s ease;
         }
 
         .project-card:hover {
-          transform: translateY(-6px);
-          border-color: #3b82f6;
+            transform: translateY(-5px);
+            border-color: #3b82f6;
         }
 
         .project-card img {
-          width: 90px;
-          height: 90px;
-          border-radius: 12px;
-          object-fit: cover;
+            width: 95px;
+            height: 95px;
+            min-width: 95px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #1e293b;
+        }
+
+        .project-card img.project-logo {
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .project-content {
+            flex: 1;
         }
 
         .project-content h3 {
-          margin-bottom: 6px;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
         }
 
         .project-content p {
-          font-size: 0.9rem;
-          color: #94a3b8;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
         }
 
         .tag {
-          display: inline-block;
-          margin-top: 8px;
-          font-size: 12px;
-          color: #60a5fa;
+            display: inline-block;
+            margin-top: 9px;
+            font-size: 12px;
+            color: #60a5fa;
+            font-weight: 500;
         }
 
-        /* GRID */
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 20px;
+        /* SKILLS */
+
+        .skill-group {
+            margin-bottom: 22px;
         }
 
-        /* BADGES */
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group h3 {
+            font-size: 0.95rem;
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
         .badge {
-          display: inline-block;
-          padding: 6px 10px;
-          margin: 5px;
-          font-size: 12px;
-          border-radius: 8px;
-          background: #1e293b;
+            display: inline-block;
+            padding: 7px 12px;
+            margin: 4px 5px 4px 0;
+            font-size: 12px;
+            border-radius: 8px;
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        /* CONTACT */
+
+        .contact-item {
+            margin-bottom: 18px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #60a5fa;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #60a5fa;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 600px) {
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .profile-img {
+                width: 125px;
+                height: 125px;
+            }
+
+            section {
+                padding: 45px 18px;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .project-card {
+                gap: 12px;
+                padding: 13px;
+            }
+
+            .project-card img {
+                width: 75px;
+                height: 75px;
+                min-width: 75px;
+            }
+
+            .project-content h3 {
+                font-size: 0.95rem;
+            }
+
+            .project-content p {
+                font-size: 0.82rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
 <!-- HERO -->
+
 <div class="hero">
 
     <div class="profile-img">
-        <img src="https://github.com/hsumyatyehtet.png"/>
+        <img src="https://github.com/hsumyatyehtet.png"
+             alt="Hsu Myat Ye Htet"/>
     </div>
 
     <h1>Hsu Myat Ye Htet</h1>
-    <h2>Android Developer</h2>
+
+    <h2>Android Developer | Kotlin & Java</h2>
+
     <p>
-        Building modern Android apps using Kotlin, Jetpack Compose,
-        Clean Architecture, and scalable mobile systems.
+        Building modern Android applications with Kotlin, Java,
+        XML Views, and Jetpack Compose.
+        Focused on clean architecture and scalable mobile solutions.
     </p>
+
+    <div class="hero-links">
+        <a href="#projects" class="hero-btn primary-btn">
+            View Projects
+        </a>
+
+        <a href="#contact" class="hero-btn secondary-btn">
+            Get in Touch
+        </a>
+    </div>
+
 </div>
 
+
 <!-- ABOUT -->
-<section>
+
+<section id="about">
+
     <div class="title">About Me</div>
+
     <div class="card reveal">
-        Experienced Android Developer with a Bachelor of Computer Science, specializing in building scalable and modern mobile applications using Kotlin and clean architecture.
+
+        <p class="about-intro">
+            Android Developer with a Bachelor of Computer Science,
+            experienced in developing modern mobile applications,
+            maintaining legacy systems, and delivering products
+            from concept to production. Passionate about building
+            reliable, scalable, and maintainable Android applications.
+        </p>
+
+        <div class="about-grid">
+
+            <div class="about-item">
+                <h3>Android Development</h3>
+                <p>
+                    Kotlin, Java, Android SDK, and end-to-end
+                    mobile application development.
+                </p>
+            </div>
+
+            <div class="about-item">
+                <h3>UI Development</h3>
+                <p>
+                    XML-based Views and modern UI development
+                    using Jetpack Compose.
+                </p>
+            </div>
+
+            <div class="about-item">
+                <h3>Architecture & Design</h3>
+                <p>
+                    MVVM, Clean Architecture, modularization,
+                    and scalable mobile systems.
+                </p>
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
+
 <!-- EDUCATION -->
-<section>
+
+<section id="education">
+
     <div class="title">Education</div>
 
     <div class="resume-card reveal">
-        <div class="resume-title">Bachelor of Computer Science</div>
-        <div class="resume-company">Computer University (Taungoo) (2013 - 2018)</div>
-        <div class="resume-desc">
-            <p><strong>Focus Area:</strong> Software Engineering</p>
-            <p><strong>Core Learning:</strong> Data Structures, Algorithms, OOP, Database Systems, Mobile Development Basics</p>
+
+        <div class="resume-title">
+            Bachelor of Computer Science
         </div>
+
+        <div class="resume-company">
+            Computer University (Taungoo) • 2013 - 2018
+        </div>
+
+        <div class="resume-desc">
+            <p>
+                <strong>Focus Area:</strong>
+                Software Engineering
+            </p>
+
+            <p>
+                <strong>Core Learning:</strong>
+                Data Structures, Algorithms, OOP, Database Systems,
+                and Mobile Development Basics.
+            </p>
+        </div>
+
     </div>
 
     <div class="resume-card reveal">
-        <div class="resume-title">Professional Android Development Training</div>
+
+        <div class="resume-title">
+            Professional Android Development Training
+        </div>
 
         <div class="resume-company">
             PADC Myanmar • 2019
         </div>
 
         <div class="resume-desc">
-            <p><strong>Focus:</strong> Professional Android development fundamentals and architecture patterns</p>
+            <p>
+                <strong>Focus:</strong>
+                Professional Android development fundamentals
+                and architecture patterns.
+            </p>
 
-            <p><strong>Key Skills:</strong> Kotlin, MVP, MVVM, REST API integration, UI development</p>
+            <p>
+                <strong>Key Skills:</strong>
+                Kotlin, MVP, MVVM, REST API integration, and UI development.
+            </p>
 
-            <p><strong>Outcome:</strong> Built foundational knowledge in clean architecture and modern Android development practices</p>
+            <p>
+                <strong>Outcome:</strong>
+                Built foundational knowledge in clean architecture
+                and modern Android development practices.
+            </p>
         </div>
+
     </div>
 
 </section>
 
+
 <!-- CAREER -->
-<section>
+
+<section id="experience">
+
     <div class="title">Career Experience</div>
 
     <div class="resume-card reveal">
-        <div class="resume-title">Android Developer</div>
-        <div class="resume-company">onenex • Jan 2024 - July 2026</div>
+
+        <div class="resume-title">
+            Android Developer
+        </div>
+
+        <div class="resume-company">
+            onenex • Jan 2024 - July 2026
+        </div>
+
         <div class="resume-desc">
             <p>
-                Worked on scalable Android applications using Multi-module, Clean Architecture, and MVVM,
-                improving system structure, maintainability, and build performance. Actively contributed to
-                refactoring, code quality improvements, and Agile/Scrum development processes.
+                Worked on scalable Android applications using
+                multi-module architecture, Clean Architecture, and MVVM.
+                Contributed to improving application structure,
+                maintainability, and build performance through
+                refactoring, code quality improvements, and
+                Agile/Scrum development processes.
             </p>
         </div>
+
     </div>
 
     <div class="resume-card reveal">
-        <div class="resume-title">Senior Android Developer</div>
+
+        <div class="resume-title">
+            Senior Android Developer
+        </div>
 
         <div class="resume-company">
-            Aceplus Solution Company Limited • Sep 2022 – Jan 2024
+            Aceplus Solution Company Limited • Sep 2022 - Jan 2024
         </div>
 
         <div class="resume-desc">
             <p>
-                Developed and maintained Android applications using Kotlin with focus on scalable architecture,
-                UI implementation, and REST API integration. Improved app stability and performance through
-                debugging, optimization, and continuous maintenance.
+                Developed and maintained Android applications using
+                Kotlin, focusing on scalable architecture, UI
+                implementation, and REST API integration.
+                Improved application stability and performance
+                through debugging, optimization, and continuous maintenance.
             </p>
         </div>
+
     </div>
 
     <div class="resume-card reveal">
-        <div class="resume-title">Junior Android Developer</div>
+
+        <div class="resume-title">
+            Junior Android Developer
+        </div>
 
         <div class="resume-company">
-            MM-Digital Solutions • Jan 2020 – Feb 2021
+            MM-Digital Solutions • Jan 2020 - Feb 2021
         </div>
 
         <div class="resume-desc">
             <p>
-                Contributed to Android application development using Kotlin and MVP architecture, implementing
-                UI features, integrating APIs, and supporting app enhancements under senior guidance.
+                Contributed to Android application development using
+                Kotlin and MVP architecture, implementing UI features,
+                integrating APIs, and supporting application enhancements.
             </p>
         </div>
+
     </div>
 
     <div class="resume-card reveal">
-        <div class="resume-title">Junior Android Developer</div>
+
+        <div class="resume-title">
+            Junior Android Developer
+        </div>
 
         <div class="resume-company">
-            Universal Technology • Oct 2018 – Dec 2019
+            Universal Technology • Oct 2018 - Dec 2019
         </div>
 
         <div class="resume-desc">
             <p>
-                Supported development of the UTBA business application by building UI components and assisting
-                with database-related features under senior developer supervision.
+                Supported development of the UTBA business application
+                by building UI components and assisting with
+                database-related features under senior developer supervision.
             </p>
         </div>
+
     </div>
 
 </section>
 
+<!-- =========================
+     TECHNICAL HIGHLIGHTS
+========================= -->
+
+<section id="highlights">
+
+    <div class="title">Technical Highlights</div>
+
+    <div class="highlight-grid">
+
+
+        <!-- ARCHITECTURE -->
+
+        <div class="highlight-card reveal">
+
+            <div class="highlight-icon">🏗️</div>
+
+            <h3>Android Architecture</h3>
+
+            <p>
+                Building maintainable Android applications
+                using Clean Architecture, MVVM, and
+                multi-module project structures.
+            </p>
+
+            <div class="highlight-tags">
+                <span>MVVM</span>
+                <span>Clean Architecture</span>
+                <span>Multi-module</span>
+            </div>
+
+        </div>
+
+
+        <!-- MODERN UI -->
+
+        <div class="highlight-card reveal">
+
+            <div class="highlight-icon">🎨</div>
+
+            <h3>Modern UI Development</h3>
+
+            <p>
+                Developing responsive Android interfaces
+                using traditional XML Views and modern
+                declarative UI with Jetpack Compose.
+            </p>
+
+            <div class="highlight-tags">
+                <span>Kotlin</span>
+                <span>XML Views</span>
+                <span>Jetpack Compose</span>
+            </div>
+
+        </div>
+
+
+        <!-- API -->
+
+        <div class="highlight-card reveal">
+
+            <div class="highlight-icon">🔗</div>
+
+            <h3>API & Network Integration</h3>
+
+            <p>
+                Integrating REST APIs, handling asynchronous
+                operations, and managing application data
+                with modern networking libraries.
+            </p>
+
+            <div class="highlight-tags">
+                <span>Retrofit</span>
+                <span>Coroutines</span>
+                <span>Flow</span>
+            </div>
+
+        </div>
+
+
+        <!-- SECURITY -->
+
+        <div class="highlight-card reveal">
+
+            <div class="highlight-icon">🔐</div>
+
+            <h3>Application Security</h3>
+
+            <p>
+                Working with SSL/TLS configuration,
+                certificate pinning, and secure network
+                communication in Android applications.
+            </p>
+
+            <div class="highlight-tags">
+                <span>SSL/TLS</span>
+                <span>Certificate Pinning</span>
+                <span>OkHttp</span>
+            </div>
+
+        </div>
+
+
+        <!-- FIREBASE -->
+
+        <div class="highlight-card reveal">
+
+            <div class="highlight-icon">🔥</div>
+
+            <h3>Firebase Integration</h3>
+
+            <p>
+                Implementing Firebase services and
+                Remote Config to support dynamic
+                application configurations and features.
+            </p>
+
+            <div class="highlight-tags">
+                <span>Firebase</span>
+                <span>Remote Config</span>
+                <span>Analytics</span>
+            </div>
+
+        </div>
+
+
+        <!-- LEGACY -->
+
+        <div class="highlight-card reveal">
+
+            <div class="highlight-icon">⚙️</div>
+
+            <h3>Legacy App Maintenance</h3>
+
+            <p>
+                Maintaining and improving existing Android
+                applications through debugging, refactoring,
+                performance optimization, and feature enhancements.
+            </p>
+
+            <div class="highlight-tags">
+                <span>Java</span>
+                <span>Kotlin</span>
+                <span>Refactoring</span>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
 <!-- PROJECTS -->
-<section>
+
+<section id="projects">
+
     <div class="title">Projects</div>
 
     <a class="project-card reveal"
-       href="https://play.google.com/store/apps/details?id=dev.hmyh.hmyhassignmentthree"
-       target="_blank">
+       href="https://play.google.com/store/apps/details?id=com.hmyh.moviejc"
+       target="_blank"
+       rel="noopener noreferrer">
 
-        <img src="https://play-lh.googleusercontent.com/UjQ-gumsVx_DliIu9DCGf94R4CcPdrUqlUqQM6lJ9m0t76aZP3xP5xkUDu8ZRroCSGs=w480-h960-rw"/>
+        <img src="https://play-lh.googleusercontent.com/dio3PJoPAUThvjrxQ_Aov9H2YZQqiWuoqtaRJRBUN9OA-WNdXZSZK9EtSDXeETow1431CHkb1I2AhpptDYA3Sxo=w480-h960-rw"
+             alt="MovieJC"/>
 
         <div class="project-content">
-            <h3>Movie App</h3>
-            <p>Discover trending movies using TMDB API with Jetpack Compose.</p>
+            <h3>MovieJC</h3>
+
+            <p>
+                Browse movies, search titles, and explore ratings,
+                posters, and details using the TMDB API.
+            </p>
+
             <span class="tag">Open in Play Store →</span>
         </div>
+
     </a>
+
+
+    <a class="project-card reveal"
+       href="https://play.google.com/store/apps/details?id=dev.hmyh.hmyhassignmentthree"
+       target="_blank"
+       rel="noopener noreferrer">
+
+        <img src="https://play-lh.googleusercontent.com/UjQ-gumsVx_DliIu9DCGf94R4CcPdrUqlUqQM6lJ9m0t76aZP3xP5xkUDu8ZRroCSGs=w480-h960-rw"
+             alt="MovieApp"/>
+
+        <div class="project-content">
+            <h3>MovieApp</h3>
+
+            <p>
+                Discover trending movies using TMDB API.
+            </p>
+
+            <span class="tag">Open in Play Store →</span>
+        </div>
+
+    </a>
+
 
     <a class="project-card reveal"
        href="https://play.google.com/store/apps/details?id=com.punhlaing.healapp&hl=en"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
 
-        <img src="https://play-lh.googleusercontent.com/FgBnvtr5uKLqL4PxeZ4qgSU5ehHciF8vwPX_ETA9e-vlh_ibSRBJ_ciTe2-4BTOk_5eFEn-WIUjub2CvbsPmUw=w480-h960-rw"/>
+        <img src="https://play-lh.googleusercontent.com/FgBnvtr5uKLqL4PxeZ4qgSU5ehHciF8vwPX_ETA9e-vlh_ibSRBJ_ciTe2-4BTOk_5eFEn-WIUjub2CvbsPmUw=w480-h960-rw"
+             alt="Heal by Pun Hlaing"/>
 
         <div class="project-content">
             <h3>heal by Pun Hlaing</h3>
-            <p>A one stop solution for your health.</p>
+
+            <p>
+                A one-stop digital solution for healthcare services.
+            </p>
+
             <span class="tag">Open in Play Store →</span>
         </div>
+
     </a>
+
 
     <a class="project-card reveal"
        href="https://play.google.com/store/apps/details?id=com.pocket.customer&hl=en"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
 
-        <img src="https://play-lh.googleusercontent.com/XSZJHcm813jxWnKGEGzHD7l2wAAd9rQoKyo56Ud9MHRl_pf1mmgpDVJo4xEorX6zMSo=w480-h960-rw"/>
+        <img src="https://play-lh.googleusercontent.com/XSZJHcm813jxWnKGEGzHD7l2wAAd9rQoKyo56Ud9MHRl_pf1mmgpDVJo4xEorX6zMSo=w480-h960-rw"
+             alt="Pocket MM"/>
 
         <div class="project-content">
             <h3>Pocket MM</h3>
-            <p>A digital lifestyle loyalty platform.</p>
+
+            <p>
+                A digital lifestyle and loyalty platform
+                for everyday customer experiences.
+            </p>
+
             <span class="tag">Open in Play Store →</span>
         </div>
+
     </a>
+
 
     <a class="project-card reveal"
        href="https://play.google.com/store/apps/details?id=ysh.better.hr&hl=en"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
 
-        <img src="https://play-lh.googleusercontent.com/7sUMWw_QaNOaSKw6fwS9QENfu4Arj7sqTYPtv7UmxW-g2qJL6Ppv-Ft5G-lvW1ITxB4=w480-h960-rw"/>
+        <img src="https://play-lh.googleusercontent.com/7sUMWw_QaNOaSKw6fwS9QENfu4Arj7sqTYPtv7UmxW-g2qJL6Ppv-Ft5G-lvW1ITxB4=w480-h960-rw"
+             alt="Yoma Connect"/>
 
         <div class="project-content">
             <h3>Yoma Connect</h3>
-            <p>HR management and Social platform.</p>
+
+            <p>
+                HR management and social platform
+                for employee engagement.
+            </p>
+
             <span class="tag">Open in Play Store →</span>
         </div>
+
     </a>
+
 
     <a class="project-card reveal"
        href="https://play.google.com/store/apps/details?id=com.aiamm.plus"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
 
-        <img src="https://media.licdn.com/dms/image/sync/v2/D5627AQEx0sRoiKEDtg/articleshare-shrink_480/articleshare-shrink_480/0/1711270898120?e=1779886800&v=beta&t=MWgxbhg-FBMqPpof7Esyypf13lZ0FWpPEA9V6ztitOE"/>
+        <img src="https://media.licdn.com/dms/image/sync/v2/D5627AQEx0sRoiKEDtg/articleshare-shrink_480/articleshare-shrink_480/0/1711270898120?e=1779886800&v=beta&t=MWgxbhg-FBMqPpof7Esyypf13lZ0FWpPEA9V6ztitOE"
+             alt="AIA MyanX"/>
 
         <div class="project-content">
             <h3>AIA MyanX (Now AIA+ Myanmar)</h3>
 
             <p>
-                Insurance mobile application for AIA Myanmar. The project was previously known as MyanX and later rebranded to AIA+ Myanmar.
-            </p>
-
-            <p>
-                Contributed to the earlier version of the application by supporting UI development and feature implementation.
+                Insurance mobile application for AIA Myanmar.
+                Contributed to the earlier version through
+                UI development and feature implementation.
             </p>
 
             <span class="tag">Open in Play Store →</span>
         </div>
+
     </a>
 
-    <a class="project-card reveal"
-       href=""
-       target="_blank">
 
-        <img src="https://media.licdn.com/dms/image/sync/v2/D5627AQEKdVFWU74CYw/articleshare-shrink_480/articleshare-shrink_480/0/1751668085129?e=1779886800&v=beta&t=8pEP6AoSWE6uFWRZbupJg1fO1EyvFds4TNq20oSLxeg"/>
+    <div class="project-card reveal">
+
+        <img class="project-logo"
+             src="ta-resources-myanmar.png"
+             alt="TA Resources Myanmar"/>
 
         <div class="project-content">
             <h3>TA Resources Myanmar</h3>
-            <p>Salefoce Automation platform for one of the biggest lubricants, tire & battery distributor in Myanmar.</p>
-            <span class="tag">Open in Play Store →</span>
+
+            <p>
+                Salesforce automation platform for a major
+                lubricants, tires, and battery distributor in Myanmar.
+            </p>
+
+            <span class="tag">Project Experience</span>
         </div>
-    </a>
+
+    </div>
+
 
     <a class="project-card reveal"
        href="https://play.google.com/store/apps/details?id=com.gatsby.myanmar"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
 
-        <img src="https://media.licdn.com/dms/image/sync/v2/D5627AQEF6cjalWOWMw/articleshare-shrink_480/articleshare-shrink_480/0/1751668085380?e=1779886800&v=beta&t=-0DAnAMsP9RzHqjZvfNUPiuIEvZ7AuB-2UjFK2NseZs"/>
+        <img class="project-logo"
+             src="gatsby.png"
+             alt="Gatsby"/>
 
         <div class="project-content">
             <h3>Gatsby</h3>
-            <p>Augmented Reality Selfie App for Promoting Gatsby ProductsAugmented Reality Selfie App for promoting Gatsby Products.</p>
+
+            <p>
+                Augmented Reality selfie application
+                for promoting Gatsby products.
+            </p>
+
             <span class="tag">Open in Play Store →</span>
         </div>
+
     </a>
 
-
 </section>
 
-<!-- SKILLS -->
-<section>
-    <div class="title">Skills</div>
+
+<!-- TECHNICAL SKILLS -->
+
+<section id="skills">
+
+    <div class="title">Technical Skills</div>
 
     <div class="card reveal">
-        <span class="badge">Kotlin</span>
-        <span class="badge">Jetpack Compose</span>
-        <span class="badge">MVVM</span>
-        <span class="badge">Clean Architecture</span>
-        <span class="badge">Hilt</span>
-        <span class="badge">Retrofit</span>
-        <span class="badge">Coroutines</span>
-        <span class="badge">Flow</span>
-        <span class="badge">Git flow</span>
+
+        <div class="skill-group">
+
+            <h3>Languages</h3>
+
+            <span class="badge">Kotlin</span>
+            <span class="badge">Java</span>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>UI Development</h3>
+
+            <span class="badge">Jetpack Compose</span>
+            <span class="badge">XML Views</span>
+            <span class="badge">Material Design</span>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>Architecture & Development</h3>
+
+            <span class="badge">MVVM</span>
+            <span class="badge">Clean Architecture</span>
+            <span class="badge">Multi-module Architecture</span>
+            <span class="badge">MVP</span>
+            <span class="badge">Coroutines</span>
+            <span class="badge">Flow</span>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>Libraries & Tools</h3>
+
+            <span class="badge">Hilt</span>
+            <span class="badge">Retrofit</span>
+            <span class="badge">Firebase</span>
+            <span class="badge">Git</span>
+            <span class="badge">Android Studio</span>
+
+        </div>
+
     </div>
+
 </section>
+
 
 <!-- CONTACT -->
-<section>
-    <div class="title">Contact</div>
+
+<section id="contact">
+
+    <div class="title">Get in Touch</div>
 
     <div class="card reveal">
 
-        <div>
-            <div><strong>Email</strong></div>
-            <div>
-                <a href="mailto:hsumyatyehtet@gmail.com" style="color: inherit;">
-                    hsumyatyehtet@gmail.com
-                </a>
-            </div>
-            <br>
+        <div class="contact-item">
+
+            <strong>Email</strong>
+
+            <a href="mailto:hsumyatyehtet@gmail.com">
+                hsumyatyehtet@gmail.com
+            </a>
+
         </div>
 
-        <div>
-            <div><strong>GitHub</strong></div>
-            <div>
-                <a href="https://github.com/hsumyatyehtet" target="_blank" style="color: inherit;">
-                    github.com/hsumyatyehtet
-                </a>
-            </div>
-            <br>
+
+        <div class="contact-item">
+
+            <strong>GitHub</strong>
+
+            <a href="https://github.com/hsumyatyehtet"
+               target="_blank"
+               rel="noopener noreferrer">
+                github.com/hsumyatyehtet
+            </a>
+
         </div>
 
-        <div>
-            <div><strong>LinkedIn</strong></div>
-            <div>
-                <a href="https://www.linkedin.com/in/hsumyatyehtet/" target="_blank" style="color: inherit;">
-                    linkedin.com/in/hsumyatyehtet
-                </a>
-            </div>
-            <br>
+
+        <div class="contact-item">
+
+            <strong>LinkedIn</strong>
+
+            <a href="https://www.linkedin.com/in/hsumyatyehtet/"
+               target="_blank"
+               rel="noopener noreferrer">
+                linkedin.com/in/hsumyatyehtet
+            </a>
+
         </div>
 
-        <div>
-            <div><strong>Phone</strong></div>
-            <div>
-                <a href="tel:+959254726191" style="color: inherit;">
-                    +95 9 254 726 191
-                </a>
-            </div>
+
+        <div class="contact-item">
+
+            <strong>Phone</strong>
+
+            <a href="tel:+959254726191">
+                +95 9 254 726 191
+            </a>
+
         </div>
 
     </div>
+
 </section>
 
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 Hsu Myat Ye Htet. All rights reserved.</p>
+    <p>Designed & Built with passion for Android Development.</p>
+</footer>
+
+
+<!-- ANIMATION SCRIPT -->
+
 <script>
+
     const cards = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold: 0.15 });
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.1
+    });
 
     cards.forEach(card => observer.observe(card));
+
 </script>
 
 </body>

@@ -1,0 +1,54 @@
+
+>>
+endobj
+63 0 obj
+<<
+/Type /StructElem
+/S /H6
+/P 35 0 R
+/T (Sep 2022 - Jan 2024)
+/E (Sep 2022 - Jan 2024)
+/Pg 10 0 R
+/K [25]
+>>
+endobj
+64 0 obj
+<<
+/Type /StructElem
+/S /H5
+/P 35 0 R
+/T (Senior Android Developer | Aceplus Solutions)
+/E (Senior Android Developer | Aceplus Solutions)
+/Pg 10 0 R
+/K [26 144 0 R]
+>>
+endobj
+65 0 obj
+<<
+/Type /StructElem
+/S /Span
+/K [27]
+/Pg 10 0 R
+/P 144 0 R
+>>
+endobj
+66 0 obj
+<<
+/Type /StructElem
+/S /H3
+/P 35 0 R
+/T (PORTFOLIOS WEBISITE)
+/E (PORTFOLIOS WEBISITE)
+/Pg 10 0 R
+/K [28]
+>>
+endobj
+67 0 obj
+<<
+/Type /StructElem
+/S /Span
+/K [29]
+/Pg 10 0 R
+/P 139 0 R
+>>
+en

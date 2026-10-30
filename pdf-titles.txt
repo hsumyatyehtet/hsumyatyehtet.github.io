@@ -1,0 +1,27 @@
+Implemented new features and enhanced existing functionalities based on business requirements.
+Performed SCLA bug fixing and issue resolution to improve application stability and user experience.
+Refactored Kotlin and Java codebases to improve maintainability, readability, and performance.
+Collaborated with cross-functional teams to deliver scalable and high-quality mobile solutions.
+Utilized ClickUp for task assignment, ticket tracking, and workflow management within Agile development processes.
+Projects:
+Android Developer | Onenex / Yoma Strategic Holdings
+WORK EXPERIENCE
+HSU MYAT YE HTET
+Android Developer
+Contributed to the development and maintenance of Insurance Applications and Distribution Management Systems \(DMS\
+Implemented new features, enhanced existing functionalities, and integrated RESTful APIs.
+Applied Android best practices, including MVVM, Dependency Injection, Room Database, and Network Security.
+Participated in the full Software Development Lifecycle \(SDLC\
+Primarily developed and maintained the MyanX Insurance Application for AIA Myanmar \(now AIA+ Myanmar\
+Sep 2022 - Jan 2024
+Senior Android Developer | Aceplus Solutions
+PORTFOLIOS WEBISITE
+SKILLS
+Junior Android Developer | Universal Technology
+Projects:
+Junior Android Developer | MM Digital Solutions
+OTHER QUALIFICATION
+EDUCATION
+Academic Program - Bachelor of Computer Science
+Training Program - Professional Android Developer Course
+Achievement
