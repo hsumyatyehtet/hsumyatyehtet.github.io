@@ -415,7 +415,11 @@
         /* CONTACT */
 
         .contact-item {
-            margin-bottom: 18px;
+            display: grid;
+            grid-template-columns: 11rem minmax(0, 1fr);
+            column-gap: 16px;
+            align-items: baseline;
+            margin-bottom: 14px;
         }
 
         .contact-item:last-child {
@@ -423,21 +427,28 @@
         }
 
         .contact-item strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #60a5fa;
+            color: #94a3b8;
             font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .contact-item a {
-            color: #cbd5e1;
-            text-decoration: none;
+            color: #60a5fa;
+            text-decoration: underline;
+            text-underline-offset: 3px;
             font-size: 0.9rem;
             transition: 0.3s;
         }
 
         .contact-item a:hover {
-            color: #60a5fa;
+            color: #93c5fd;
+        }
+
+        @media (max-width: 600px) {
+            .contact-item {
+                grid-template-columns: 1fr;
+                row-gap: 4px;
+            }
         }
 
         /* FOOTER */
@@ -1210,7 +1221,7 @@
             <a href="https://play.google.com/store/apps/developer?id=Hsu+Myat+Ye+Htet"
                target="_blank"
                rel="noopener noreferrer">
-                View
+                Hsu Myat Ye Htet
             </a>
 
         </div>
@@ -1231,16 +1242,18 @@
 
             <strong>Resume</strong>
 
-            <a href="HMYH_Android_Developer_Resume.pdf"
-               target="_blank"
-               rel="noopener noreferrer">
-                View
-            </a>
-            ·
-            <a href="HMYH_Android_Developer_Resume.pdf"
-               download="HMYH_Android_Developer_Resume.pdf">
-                Download
-            </a>
+            <span>
+                <a href="HMYH_Android_Developer_Resume.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    View
+                </a>
+                ·
+                <a href="HMYH_Android_Developer_Resume.pdf"
+                   download="HMYH_Android_Developer_Resume.pdf">
+                    Download
+                </a>
+            </span>
 
         </div>
 
